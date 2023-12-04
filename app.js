@@ -16,11 +16,13 @@ app.post("/" , (req, res, next) => {
 })
 
 
-const ProductRoute = require('./Routes/Product.route');
-app.use('/products', ProductRoute);
-
 const EspRoute = require('./Routes/Esp.route');
 app.use('/esp', EspRoute);
+
+// const ProductRoute = require('./Routes/Product.route');
+// app.use('/products', ProductRoute);
+
+
 
 
 //404 handler and pass to error handler
