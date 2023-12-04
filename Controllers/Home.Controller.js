@@ -8,7 +8,10 @@ module.exports = {
     getDataHome: async (req, res, next) => {
         try {
             const results = await Home.find({}, {__v: 0});
-            res.send(results);
+            res.json({
+                "led_1" : results.led_1,
+                "led_2" : results.led_2,
+            })
         } catch (error) {
             console.log(error.message);
         }
