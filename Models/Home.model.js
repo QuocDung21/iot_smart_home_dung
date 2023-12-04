@@ -7,7 +7,7 @@ const HomeSchema = new Schema({
         default: 1,
         required: true
     },
-    Led_2: {
+    led_2: {
         type: Number,
         default: 1,
         required: true
