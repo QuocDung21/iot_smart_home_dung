@@ -19,9 +19,8 @@ app.post("/" , (req, res, next) => {
 const EspRoute = require('./Routes/Esp.route');
 app.use('/esp', EspRoute);
 
-// const ProductRoute = require('./Routes/Product.route');
-// app.use('/products', ProductRoute);
-
+const HomeRoute = require('./Routes/Home.route');
+app.use('/home', HomeRoute);
 
 
 

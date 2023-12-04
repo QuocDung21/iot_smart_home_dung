@@ -15,6 +15,10 @@ module.exports = {
     //     }
     // },
 
+    getDataEsp : function (req, res, next) {
+
+    },
+
     createEsp: async (req, res, next) => {
         try {
             const {temp, humid, chuyendong, door} = req.body;
