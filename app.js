@@ -10,6 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 // Initialize DB
 require('./initDB')();
 
+app.post("/" , (req, res, next) => {
+  console.log(req.body)
+  return res.json(req.body)
+})
+
+
 const ProductRoute = require('./Routes/Product.route');
 app.use('/products', ProductRoute);
 
@@ -25,10 +31,7 @@ app.use((req, res, next) => {
 });
 
 
-app.post("/" , (req, res, next) => {
-  console.log(req.body)
-  return res.json(req.body)
-})
+
 
 //Error handler
 app.use((err, req, res, next) => {
