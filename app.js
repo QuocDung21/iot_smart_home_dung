@@ -24,6 +24,12 @@ app.use((req, res, next) => {
   next(createError(404, 'Not found'));
 });
 
+
+app.post("/" , (req, res, next) => {
+  console.log(req.body)
+  return res.json(req.body)
+})
+
 //Error handler
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
