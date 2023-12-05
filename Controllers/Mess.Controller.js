@@ -88,7 +88,7 @@ module.exports = {
             }
 
             if (parseInt(status) === 1) {
-                let messtext = 'Đã bật đèn phòng khách';
+                let messtext = 'Đã bật đèn phòng ngủ';
                 await Home.findByIdAndUpdate(
                     {_id: "656e303ac83ee75dbcc35f26"},
                     {
