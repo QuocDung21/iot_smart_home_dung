@@ -22,6 +22,8 @@ app.use('/esp', EspRoute);
 const HomeRoute = require('./Routes/Home.route');
 app.use('/home', HomeRoute);
 
+const MessRoute = require('./Routes/Mess.route');
+app.use('/mess', MessRoute);
 
 
 //404 handler and pass to error handler
