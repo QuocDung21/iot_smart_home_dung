@@ -92,7 +92,7 @@ module.exports = {
                 await Home.findByIdAndUpdate(
                     {_id: "656e303ac83ee75dbcc35f26"},
                     {
-                        led_1: 1
+                        led_2: 1
                     },
                     {
                         new: true
