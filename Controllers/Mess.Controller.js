@@ -6,7 +6,7 @@ const Esp = require("../Models/Esp.model");
 
 module.exports = {
     getDenPhongKhach: async (req, res, next) => {
-        const status = req.param();
+        const status = req.params.status;
         try {
             const result = await Home.findOne({_id: "656e303ac83ee75dbcc35f26"}, {__v: 0});
             console.log(result)
@@ -18,10 +18,10 @@ module.exports = {
             const led_2 = result.led_2;
             const door = result.door;
 
-            if (led_1 === status) {
-                let messtext = 'có bật đâu mà kiu tắt???';
+            if (led_1 === parseInt(status)) {
+                let messtext = 'Đèn chưa bật mà sao tắt';
                 if (led_1 === 1) {
-                    messtext = 'bật rồi mà kiu bật nửa là sao??';
+                    messtext = 'Đèn đang bật mà';
                 }
                 return res.status(200).json({messages: [{text: messtext}]})
             }
