@@ -33,8 +33,7 @@ module.exports = {
         try {
             const results = await Home.findByIdAndUpdate("656e303ac83ee75dbcc35f26", {
                 led_1,
-                led_2,
-                door
+                led_2
             })
             res.send(results);
         } catch (error) {
