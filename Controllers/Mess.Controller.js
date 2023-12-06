@@ -121,7 +121,11 @@ module.exports = {
     getNhietDo: async (req, res) => {
         try {
             const results = await Esp.findOne({}).sort({createdAt: -1});
-            let messtext = 'Nhiệt độ hiện tại là : ' +results.temp + "°C";
+            if(results.temp >= 64) {
+                let messtext = 'Cảnh báo nhiệt độ hiện tại cao quá !!  : ' + results.temp + "°C";
+                return res.status(200).json({messages: [{text: messtext}]})
+            }
+            let messtext = 'Nhiệt độ hiện tại là : ' + results.temp + "°C";
             return res.status(200).json({messages: [{text: messtext}]})
         } catch (error) {
             console.log(error.message);
