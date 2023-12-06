@@ -1,27 +1,22 @@
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-
+const sendEmail = require("../Mail/mail");
 const Esp = require('../Models/Esp.model');
 
 module.exports = {
-    // getAllProducts: async (req, res, next) => {
-    //     try {
-    //         const results = await Product.find({}, {__v: 0});
-    //         // const results = await Product.find({}, { name: 1, price: 1, _id: 0 });
-    //         // const results = await Product.find({ price: 699 }, {});
-    //         res.send(results);
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // },
 
-    getDataEsp : function (req, res, next) {
-
-    },
 
     createEsp: async (req, res, next) => {
         try {
             const {temp, humid, chuyendong, door} = req.body;
+            if (temp >= 40) {
+                await sendEmail(
+                    "quocdung112001@gmail.com",
+                    "Cảnh báo! Nhiệt độ cao",
+                    "Cảnh báo! Nhiệt độ cao",
+                    `Nhiệt độ hiện tại là: ${temp} độ C. Vui lòng kiểm tra hệ thống.</p>`
+                )
+            }
             const espData = new Esp({temp, humid, chuyendong});
             const result = await espData.save();
             res.send(result);

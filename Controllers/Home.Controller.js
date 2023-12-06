@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const Home = require('../Models/Home.model');
 const Esp = require("../Models/Esp.model");
-
+const sendEmail = require("../Mail/mail");
 module.exports = {
     getDataHome: async (req, res, next) => {
         try {
@@ -12,6 +12,9 @@ module.exports = {
             if (!result) {
                 return res.status(404).json({ error: "Data not found" });
             }
+
+
+
 
             const led_1 = result.led_1;
             const led_2 = result.led_2;

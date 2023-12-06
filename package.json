@@ -4,7 +4,7 @@
   "description": "Youtube Tutorial",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "dev": "node_modules/.bin/nodemon app.js"
   },
   "author": "Me",
@@ -14,7 +14,10 @@
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "moment": "^2.29.4",
-    "mongoose": "^5.7.13"
+    "mongoose": "^5.7.13",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.7",
+    "websocket": "^1.0.34"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
