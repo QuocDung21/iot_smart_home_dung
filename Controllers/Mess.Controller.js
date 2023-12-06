@@ -97,7 +97,19 @@ module.exports = {
                         new: true
                     }
                 );
-                return res.status(200).json({messages: [{text: messtext}]})
+                return {
+                    messages: [
+                        {text: messtext},
+                        {
+                            attachment: {
+                                type: 'image',
+                                payload: {
+                                    url: "https://tutihealth.com/wp-content/uploads/2022/10/meme-vit-cam-dao-4.jpg"
+                                }
+                            }
+                        }
+                    ]
+                }
             } else {
                 await Home.findByIdAndUpdate(
                     {_id: "656e303ac83ee75dbcc35f26"},
