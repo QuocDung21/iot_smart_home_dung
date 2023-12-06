@@ -143,6 +143,40 @@ module.exports = {
         }
     },
 
+    getDoor: async (req, res) => {
+        const status = req.params.status;
+        try {
+            const result = await Home.findOne({_id: "656e303ac83ee75dbcc35f26"}, {__v: 0});
+            if (result.door === parseInt(status) && parseInt(status) === 90) {
+                let messtext = 'Có mở đâu mà đòi đóng !';
+                return res.status(200).json({messages: [{text: messtext}]})
+            }
+
+            if (result.door === parseInt(status) && parseInt(status) === 0) {
+                let messtext = 'Có đóng đâu mà đòi mở !';
+                return res.status(200).json({messages: [{text: messtext}]})
+            }
+
+            if (parseInt(status) === 90) {
+                let messtext = 'Đã đóng cửa rồi nhé !';
+                const results = await Home.findByIdAndUpdate("656e303ac83ee75dbcc35f26", {
+                    door: status
+                })
+                return res.status(200).json({messages: [{text: messtext}]})
+            } else {
+                let messtext = 'Đã mở cửa rồi nhé !';
+                const results = await Home.findByIdAndUpdate("656e303ac83ee75dbcc35f26", {
+                    door: status
+                })
+                return res.status(200).json({messages: [{text: messtext}]})
+            }
+
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
 
     updateDataHome: async (req, res, next) => {
         const {led_1, led_2, door} = req.body;

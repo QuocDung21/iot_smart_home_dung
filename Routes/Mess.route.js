@@ -7,7 +7,7 @@ router.get('/den-phongkhach/:status', Mess.getDenPhongKhach);
 router.get('/den-phongngu/:status', Mess.getDenPhongNgu);
 router.get('/nhietdo', Mess.getNhietDo);
 router.get('/doam', Mess.getDoAm)
-
+router.get('/door/:status', Mess.getDoor)
 router.post('/', Mess.updateDataHome)
 
 module.exports = router;
