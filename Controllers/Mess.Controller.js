@@ -65,7 +65,6 @@ module.exports = {
         }
     },
 
-
     getDenPhongNgu: async (req, res, next) => {
         const status = req.params.status;
         try {
@@ -118,6 +117,17 @@ module.exports = {
             return res.status(500).json({error: "Internal Server Error"});
         }
     },
+
+    getNhietDo: async (req, res) => {
+        try {
+            const results = await Esp.findOne({}).sort({createdAt: -1});
+            let messtext = 'Nhiệt độ hiện tại là : ' +results.temp + "°C";
+            return res.status(200).json({messages: [{text: messtext}]})
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
 
     updateDataHome: async (req, res, next) => {
         const {led_1, led_2, door} = req.body;

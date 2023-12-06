@@ -38,8 +38,6 @@ app.use((req, res, next) => {
 });
 
 
-
-
 //Error handler
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
@@ -51,7 +49,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log('Server started on port ' + PORT + '...');
