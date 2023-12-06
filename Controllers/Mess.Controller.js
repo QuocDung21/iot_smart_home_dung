@@ -24,7 +24,16 @@ module.exports = {
                 if (led_1 === 1) {
                     messtext = 'Đèn đang bật mà';
                 }
-                return res.status(200).json({messages: [{text: messtext}]})
+                return res.status(200).json({
+                    messages: [{text: messtext}, {
+                        attachment: {
+                            type: 'image',
+                            payload: {
+                                url: "https://tutihealth.com/wp-content/uploads/2022/10/meme-vit-cam-dao-4.jpg"
+                            }
+                        }
+                    }]
+                })
             }
 
             if (parseInt(status) === 1) {
@@ -73,17 +82,23 @@ module.exports = {
             if (!result) {
                 return res.status(404).json({error: "Data not found"});
             }
-
-            const led_1 = result.led_1;
             const led_2 = result.led_2;
-            const door = result.door;
 
             if (led_2 === parseInt(status)) {
                 let messtext = 'Đèn chưa bật mà sao tắt';
                 if (led_2 === 1) {
                     messtext = 'Đèn đang bật mà';
                 }
-                return res.status(200).json({messages: [{text: messtext}]})
+                return res.status(200).json({
+                    messages: [{text: messtext}, {
+                        attachment: {
+                            type: 'image',
+                            payload: {
+                                url: "https://tutihealth.com/wp-content/uploads/2022/10/meme-vit-cam-dao-4.jpg"
+                            }
+                        }
+                    }]
+                })
             }
 
             if (parseInt(status) === 1) {
@@ -161,12 +176,30 @@ module.exports = {
             const result = await Home.findOne({_id: "656e303ac83ee75dbcc35f26"}, {__v: 0});
             if (result.door === parseInt(status) && parseInt(status) === 90) {
                 let messtext = 'Có mở đâu mà đòi đóng !';
-                return res.status(200).json({messages: [{text: messtext}]})
+                return res.status(200).json({
+                    messages: [{text: messtext}, {
+                        attachment: {
+                            type: 'image',
+                            payload: {
+                                url: "https://tutihealth.com/wp-content/uploads/2022/10/meme-vit-cam-dao-4.jpg"
+                            }
+                        }
+                    }]
+                })
             }
 
             if (result.door === parseInt(status) && parseInt(status) === 0) {
                 let messtext = 'Có đóng đâu mà đòi mở !';
-                return res.status(200).json({messages: [{text: messtext}]})
+                return res.status(200).json({
+                    messages: [{text: messtext}, {
+                        attachment: {
+                            type: 'image',
+                            payload: {
+                                url: "https://tutihealth.com/wp-content/uploads/2022/10/meme-vit-cam-dao-4.jpg"
+                            }
+                        }
+                    }]
+                })
             }
 
             if (parseInt(status) === 90) {
