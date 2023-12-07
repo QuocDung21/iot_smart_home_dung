@@ -17,6 +17,14 @@ module.exports = {
                     `Nhiệt độ hiện tại là: ${temp} độ C. Vui lòng kiểm tra hệ thống.</p>`
                 )
             }
+            if (chuyendong == 1) {
+                await sendEmail(
+                    "quocdung112001@gmail.com",
+                    "Cảnh báo! Phát hiện có người",
+                    "Cảnh báo! Phát hiện có người",
+                    `Cảnh báo phát hiện có chuyển động.</p>`
+                )
+            }
             const espData = new Esp({temp, humid, chuyendong});
             const result = await espData.save();
             res.send(result);
